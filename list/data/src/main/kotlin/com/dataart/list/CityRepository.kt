@@ -11,4 +11,9 @@ interface CityRepository {
      * Returns list of saved by user cities
      */
     fun getCities(): Flow<List<City>>
+
+    /**
+     * Removes [city] from list of user saved cities
+     */
+    suspend fun removeCity(city: City)
 }
