@@ -3,7 +3,7 @@ package com.dataart.model
 /**
  * City
  */
-sealed interface City{
+sealed interface City {
 
     interface WithName : City {
 
@@ -29,5 +29,11 @@ sealed interface City{
         val coordinates: Coordinates
     }
 
+    interface WithTemperature<T : Temperature> : City {
 
+        /**
+         * Temperature in the city
+         */
+        val temperature: T
+    }
 }
