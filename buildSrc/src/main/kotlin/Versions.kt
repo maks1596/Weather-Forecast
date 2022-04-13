@@ -1,6 +1,5 @@
 import org.gradle.api.JavaVersion
 
-const val kotlinVersion = "1.6.20"
 const val jvmTargetVersion = "1.8"
 val javaSourceCompatibilityVersion get() = JavaVersion.VERSION_1_8
 val javaTargetCompatibilityVersion get() = JavaVersion.VERSION_1_8
