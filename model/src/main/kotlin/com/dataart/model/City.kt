@@ -13,6 +13,14 @@ sealed interface City {
         val name: String
     }
 
+    interface WithCountryName {
+
+        /**
+         * City country name
+         */
+        val countryName: String
+    }
+
     interface WithWeather : City {
 
         /**
