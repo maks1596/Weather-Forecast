@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk = Android.compileSdkVersion
+    compileSdk = Version.Android.compileSdk
 
     defaultConfig {
         applicationId = "com.dataart.weatherforecast"
-        minSdk = Android.minSdkVersion
-        targetSdk = Android.targetSdkVersion
+        minSdk = Version.Android.minSdk
+        targetSdk = Version.Android.targetSdk
         versionCode = 1
         versionName = "1.0"
     }
@@ -21,18 +21,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = javaSourceCompatibilityVersion
-        targetCompatibility = javaTargetCompatibilityVersion
+        sourceCompatibility = Version.Java.sourceCompatibility
+        targetCompatibility = Version.Java.targetCompatibility
     }
     kotlinOptions {
-        jvmTarget = jvmTargetVersion
+        jvmTarget = Version.jvmTarget
     }
 }
 
 dependencies {
-
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
+    implementation(Dependency.AndroidX.core)
+    implementation(Dependency.AndroidX.appCompat)
+    implementation(Dependency.material)
 }

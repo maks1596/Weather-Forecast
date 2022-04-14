@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    compileSdk = Android.compileSdkVersion
+    compileSdk = Version.Android.compileSdk
 
     defaultConfig {
-        minSdk = Android.minSdkVersion
-        targetSdk = Android.targetSdkVersion
+        minSdk = Version.Android.minSdk
+        targetSdk = Version.Android.targetSdk
     }
 
     buildTypes {
@@ -20,17 +20,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = javaSourceCompatibilityVersion
-        targetCompatibility = javaTargetCompatibilityVersion
+        sourceCompatibility = Version.Java.sourceCompatibility
+        targetCompatibility = Version.Java.targetCompatibility
     }
     kotlinOptions {
-        jvmTarget = jvmTargetVersion
+        jvmTarget = Version.jvmTarget
     }
 }
 
 dependencies {
     api(project(":search:data"))
 
-    implementation(retrofit)
-    implementation(Coroutines.core)
+    implementation(Dependency.retrofit)
+    implementation(Dependency.Coroutines.core)
 }

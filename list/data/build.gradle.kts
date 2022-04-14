@@ -3,11 +3,11 @@ plugins {
 }
 
 java {
-    sourceCompatibility = javaSourceCompatibilityVersion
-    targetCompatibility = javaTargetCompatibilityVersion
+    sourceCompatibility = Version.Java.sourceCompatibility
+    targetCompatibility = Version.Java.targetCompatibility
 }
 
 dependencies {
     api(project(":list:model"))
-    api(Coroutines.core)
+    api(Dependency.Coroutines.core)
 }

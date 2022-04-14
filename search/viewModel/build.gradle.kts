@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    compileSdk = Android.compileSdkVersion
+    compileSdk = Version.Android.compileSdk
 
     defaultConfig {
-        minSdk = Android.minSdkVersion
-        targetSdk = Android.targetSdkVersion
+        minSdk = Version.Android.minSdk
+        targetSdk = Version.Android.targetSdk
     }
 
     buildTypes {
@@ -20,18 +20,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = javaSourceCompatibilityVersion
-        targetCompatibility = javaTargetCompatibilityVersion
+        sourceCompatibility = Version.Java.sourceCompatibility
+        targetCompatibility = Version.Java.targetCompatibility
     }
     kotlinOptions {
-        jvmTarget = jvmTargetVersion
+        jvmTarget = Version.jvmTarget
     }
 }
 
 dependencies {
     implementation(project(":search:data"))
 
-    api(Lifecycle.viewModel)
-    implementation(Lifecycle.viewModelSavedState)
-    api(Coroutines.core)
+    api(Dependency.Lifecycle.viewModel)
+    implementation(Dependency.Lifecycle.viewModelSavedState)
+    api(Dependency.Coroutines.core)
 }
