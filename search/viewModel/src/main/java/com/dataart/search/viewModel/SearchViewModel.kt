@@ -26,16 +26,27 @@ class SearchViewModel(
     }
 
     /**
+     * Is data loading now
+     */
+    val isLoadingFlow = MutableStateFlow(false)
+
+    /**
      * Flow of cities found via [searchQuery][searchQueryFlow]
      */
     val citiesFlow = searchQueryFlow.debounce(
         timeoutMillis = 500
-    ).mapLatest(repository::getCities)
+    ).onEach {
+        isLoadingFlow.value = true
+    }.mapLatest {
+        repository.getCities(it)
+    }.onEach {
+        isLoadingFlow.value = false
+    }
 
     /**
      * User has changed search query to [searchQuery]
      */
-    fun onSearchQueryChanged(searchQuery : String) {
+    fun onSearchQueryChanged(searchQuery: String) {
         _searchQueryFlow.value = searchQuery
     }
 
