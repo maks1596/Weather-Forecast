@@ -30,4 +30,6 @@ android {
 
 dependencies {
     api(project(":search:data"))
+
+    implementation(retrofit)
 }

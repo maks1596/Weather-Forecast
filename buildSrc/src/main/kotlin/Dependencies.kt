@@ -1,0 +1,1 @@
+const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
