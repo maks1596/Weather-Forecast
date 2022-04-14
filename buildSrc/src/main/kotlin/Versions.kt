@@ -12,3 +12,4 @@ object Android {
 
 const val coroutinesVersion = "1.3.9"
 const val retrofitVersion = "2.9.0"
+const val lifecycleVersion = "2.4.1"

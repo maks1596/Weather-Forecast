@@ -9,5 +9,5 @@ java {
 
 dependencies {
     api(project(":list:model"))
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    api(Coroutines.core)
 }
