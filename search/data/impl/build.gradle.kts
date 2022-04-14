@@ -32,4 +32,5 @@ dependencies {
     api(project(":search:data"))
 
     implementation(retrofit)
+    implementation(Coroutines.core)
 }
