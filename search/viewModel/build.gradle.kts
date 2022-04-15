@@ -30,6 +30,7 @@ android {
 
 dependencies {
     implementation(project(":search:data"))
+    api(project(":search:model"))
 
     api(Dependency.Lifecycle.viewModel)
     implementation(Dependency.Lifecycle.viewModelSavedState)

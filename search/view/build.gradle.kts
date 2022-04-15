@@ -11,6 +11,8 @@ android {
         targetSdk = Version.Android.targetSdk
     }
 
+    buildFeatures.viewBinding = true
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -19,6 +21,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = Version.Java.sourceCompatibility
         targetCompatibility = Version.Java.targetCompatibility
@@ -36,5 +39,6 @@ dependencies {
         implementation(appCompat)
         implementation(constraintLayout)
     }
+    implementation(Dependency.Lifecycle.runtime)
     implementation(Dependency.material)
 }

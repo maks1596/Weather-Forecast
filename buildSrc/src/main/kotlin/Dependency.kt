@@ -5,6 +5,7 @@ object Dependency {
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
         const val viewModelSavedState =
             "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Version.lifecycle}"
+        const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.lifecycle}"
     }
 
     object Coroutines {
