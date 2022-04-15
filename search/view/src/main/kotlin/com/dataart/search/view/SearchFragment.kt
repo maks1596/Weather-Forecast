@@ -3,6 +3,7 @@ package com.dataart.search.view
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -25,6 +26,14 @@ class SearchFragment(
 
         binding.toolbar.cityNameSearchView.configure()
         binding.citiesRecyclerView.configure()
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.isLoadingFlow.collect {
+                    binding.requestProgressIndicator.isInvisible = !it
+                }
+            }
+        }
     }
 
     // region SearchView.OnQueryTextListener
