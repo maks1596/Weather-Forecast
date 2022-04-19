@@ -12,8 +12,6 @@ android {
         targetSdk = Version.Android.targetSdk
     }
 
-    buildFeatures.viewBinding = true
-
     buildTypes {
         release {
             isMinifyEnabled = true
