@@ -18,7 +18,13 @@ object Dependency {
         const val appCompat = "androidx.appcompat:appcompat:${Version.AndroidX.appCompat}"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Version.AndroidX.constraintLayout}"
+        const val fragment = "androidx.fragment:fragment-ktx:${Version.AndroidX.fragment}"
     }
 
     const val material = "com.google.android.material:material:${Version.material}"
+
+    object Dagger {
+        const val core = "com.google.dagger:dagger:${Version.dagger}"
+        const val compiler = "com.google.dagger:dagger-compiler:${Version.dagger}"
+    }
 }

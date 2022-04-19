@@ -15,11 +15,10 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class SearchFragment(
-    viewModelLazy: Lazy<SearchViewModel>
-) : Fragment(R.layout.search),
-    SearchView.OnQueryTextListener {
+    viewModelLazy: SearchFragment.() -> Lazy<SearchViewModel>
+) : Fragment(R.layout.search) {
 
-    private val viewModel by viewModelLazy
+    private val viewModel by viewModelLazy()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val binding = SearchBinding.bind(view)
@@ -36,20 +35,17 @@ class SearchFragment(
         }
     }
 
-    // region SearchView.OnQueryTextListener
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        newText ?: return false
-        viewModel.onSearchQueryChanged(newText)
-        return true
-    }
-
-    override fun onQueryTextSubmit(query: String?) = false
-
-    // endregion SearchView.OnQueryTextListener
-
     private fun SearchView.configure() {
-        setOnQueryTextListener(this@SearchFragment)
+        val listener = object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText ?: return false
+                viewModel.onSearchQueryChanged(newText)
+                return true
+            }
+
+            override fun onQueryTextSubmit(query: String?) = false
+        }
+        setOnQueryTextListener(listener)
 
         fun updateQuery(newQuery: String) {
             val currentQuery = query
