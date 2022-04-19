@@ -5,7 +5,7 @@ import androidx.savedstate.SavedStateRegistryOwner
 import com.dataart.search.data.CityRepository
 import com.dataart.search.data.impl.CityRepositoryImpl
 import com.dataart.search.data.impl.GeoService
-import com.dataart.search.view.SearchFragment
+import com.dataart.search.ui.SearchFragment
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

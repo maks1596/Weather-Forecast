@@ -30,6 +30,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":search:ui"))
+
     implementation(Dependency.AndroidX.core)
     implementation(Dependency.AndroidX.appCompat)
     implementation(Dependency.material)

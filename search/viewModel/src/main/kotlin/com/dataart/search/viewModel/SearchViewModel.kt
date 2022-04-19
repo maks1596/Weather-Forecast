@@ -1,4 +1,4 @@
-package com.dataart.search.viewModel
+package com.dataart.search.uiModel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel

@@ -34,7 +34,7 @@ android {
 
 dependencies {
     implementation(project(":search:viewModel"))
-    implementation(project(":search:view"))
+    implementation(project(":search:ui"))
     implementation(project(":search:data:impl"))
 
     with(Dependency.Dagger) {

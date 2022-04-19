@@ -1,6 +1,6 @@
 package com.dataart.search.di
 
-import com.dataart.search.view.SearchFragment
+import com.dataart.search.ui.SearchFragment
 import dagger.Component
 
 @Component(modules = [SearchModule::class])

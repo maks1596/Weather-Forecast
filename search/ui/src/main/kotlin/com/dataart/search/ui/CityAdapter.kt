@@ -1,4 +1,4 @@
-package com.dataart.search.view
+package com.dataart.search.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.dataart.search.model.City
-import com.dataart.search.view.databinding.CityBinding
+import com.dataart.search.ui.databinding.CityBinding
 
 internal class CityAdapter : ListAdapter<City, CityAdapter.ViewHolder>(DiffCallback) {
 

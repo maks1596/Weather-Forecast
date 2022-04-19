@@ -1,4 +1,4 @@
-package com.dataart.search.view
+package com.dataart.search.ui
 
 import android.os.Bundle
 import android.view.View
@@ -9,8 +9,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
-import com.dataart.search.view.databinding.SearchBinding
-import com.dataart.search.viewModel.SearchViewModel
+import com.dataart.search.ui.databinding.SearchBinding
+import com.dataart.search.uiModel.SearchViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
