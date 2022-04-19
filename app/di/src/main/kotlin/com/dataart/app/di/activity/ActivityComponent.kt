@@ -11,9 +11,4 @@ import dagger.Component
 interface ActivityComponent {
 
     val fragmentFactory: FragmentFactory
-
-    @Component.Factory
-    interface Factory {
-        fun create(searchComponent: SearchComponent): ActivityComponent
-    }
 }

@@ -19,6 +19,11 @@ object Dependency {
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Version.AndroidX.constraintLayout}"
         const val fragment = "androidx.fragment:fragment-ktx:${Version.AndroidX.fragment}"
+
+        object Navigation {
+            const val fragment = "androidx.navigation:navigation-fragment-ktx:${Version.AndroidX.navigation}"
+            const val ui = "androidx.navigation:navigation-ui-ktx:${Version.AndroidX.navigation}"
+        }
     }
 
     const val material = "com.google.android.material:material:${Version.material}"

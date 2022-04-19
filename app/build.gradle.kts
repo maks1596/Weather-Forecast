@@ -31,8 +31,15 @@ android {
 
 dependencies {
     implementation(project(":search:ui"))
+    implementation(project(":app:di"))
+    implementation(project(":search:di"))
 
     implementation(Dependency.AndroidX.core)
     implementation(Dependency.AndroidX.appCompat)
     implementation(Dependency.material)
+
+    with(Dependency.AndroidX.Navigation) {
+        implementation(fragment)
+        implementation(ui)
+    }
 }

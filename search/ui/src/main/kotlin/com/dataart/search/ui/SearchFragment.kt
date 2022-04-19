@@ -27,7 +27,7 @@ class SearchFragment(
         binding.citiesRecyclerView.configure()
 
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.isLoadingFlow.collect {
                     binding.requestProgressIndicator.isInvisible = !it
                 }
@@ -54,7 +54,7 @@ class SearchFragment(
         }
 
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.searchQueryFlow.collect(::updateQuery)
             }
         }
@@ -65,7 +65,7 @@ class SearchFragment(
         this.adapter = adapter
 
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.citiesFlow.collect(adapter::submitList)
             }
         }

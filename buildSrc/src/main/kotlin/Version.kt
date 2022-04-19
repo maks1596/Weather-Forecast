@@ -23,6 +23,7 @@ object Version {
         const val appCompat = "1.4.1"
         const val constraintLayout = "2.1.3"
         const val fragment = "1.4.1"
+        const val navigation = "2.4.2"
     }
 
     const val material = "1.5.0"
