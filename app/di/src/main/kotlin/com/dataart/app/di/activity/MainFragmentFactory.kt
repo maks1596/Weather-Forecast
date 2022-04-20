@@ -9,11 +9,9 @@ internal class MainFragmentFactory(
 ) : FragmentFactory() {
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
-        val fragmentClass = fragmentProviders.keys.find { it.name == className }
-        return if (fragmentClass != null) {
-            fragmentProviders.getValue(fragmentClass).get()
-        } else {
-            super.instantiate(classLoader, className)
-        }
+        val fragmentClass = classLoader.loadClass(className)
+        val fragmentProvider = fragmentProviders[fragmentClass]
+        return if (fragmentProvider != null) fragmentProvider.get()
+        else super.instantiate(classLoader, className)
     }
 }
