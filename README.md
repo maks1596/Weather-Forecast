@@ -1,3 +1,34 @@
+## Application Description
+An application for receiving and displaying weather forecast using a third-party API. 
+
+#### Required features 
+- Search by cities (via API) 
+- Add and remove cities 
+- Get a weather forecast for a particular city 
+   - For a day 
+   - For several days (e.g. a week, depending on API capabilities) 
+- Display a list of cities with a brief information about the weather 
+- Display a detailed forecast for a particular city (by API capabilities) 
+   - For a day 
+   - For a few days 
+- Select the current city 
+- Display a notification with the current weather (briefly) for the current city 
+   - Periodic update of weather data 
+
+#### List of screens: 
+
+- Screen with a list of cities with brief information about the weather 
+   - With the ability to remove cities 
+   - With the ability to switch to the search screen and add cities 
+   - With the transition to a detailed weather forecast 
+- Screen for searching and adding cities 
+- Detailed weather forecast screen 
+   - For today 
+   - For tomorrow 
+   - For several days (for example, a week) 
+
+> To get weather data, you can use the OpenWeather API (or other similar open services)
+
 ## Application Requirements
 ### General Application Requirements
 When developing an application, the following requirements must be met: 
