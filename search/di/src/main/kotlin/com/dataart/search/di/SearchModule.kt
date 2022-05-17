@@ -1,6 +1,5 @@
 package com.dataart.search.di
 
-import androidx.fragment.app.viewModels
 import androidx.savedstate.SavedStateRegistryOwner
 import com.dataart.search.data.CityRepository
 import com.dataart.search.data.impl.CityRepositoryImpl
@@ -16,7 +15,6 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import retrofit2.create
-import javax.inject.Provider
 
 @Module
 internal interface SearchModule {
@@ -25,13 +23,6 @@ internal interface SearchModule {
     fun bindSavedStateRegistryOwner(fragment: SearchFragment): SavedStateRegistryOwner
 
     companion object {
-        @Provides
-        @SearchScope
-        fun provideFragment(
-            provider: Provider<ViewModelProviderFactory>
-        ) = SearchFragment {
-            viewModels(factoryProducer = provider::get)
-        }
 
         @Provides
         @Reusable

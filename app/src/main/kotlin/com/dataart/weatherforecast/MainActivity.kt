@@ -8,9 +8,7 @@ import com.dataart.search.di.DaggerSearchComponent
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val component = DaggerActivityComponent.builder()
-            .searchComponent(DaggerSearchComponent.create())
-            .build()
+        val component = DaggerActivityComponent.create()
         supportFragmentManager.fragmentFactory = component.fragmentFactory
 
         super.onCreate(savedInstanceState)

@@ -1,11 +1,17 @@
 package com.dataart.search.di
 
 import com.dataart.search.ui.SearchFragment
+import dagger.BindsInstance
 import dagger.Component
 
-@SearchScope
 @Component(modules = [SearchModule::class])
-interface SearchComponent {
+internal interface SearchComponent {
 
-    val searchFragment: SearchFragment
+    val viewModelProviderFactory: ViewModelProviderFactory
+
+    @Component.Factory
+    interface Factory {
+
+        fun create(@BindsInstance fragment: SearchFragment): SearchComponent
+    }
 }

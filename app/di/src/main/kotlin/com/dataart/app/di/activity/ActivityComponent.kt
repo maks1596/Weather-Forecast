@@ -1,13 +1,14 @@
 package com.dataart.app.di.activity
 
 import androidx.fragment.app.FragmentFactory
-import com.dataart.search.di.SearchComponent
+import com.dataart.search.di.SearchFragmentModule
 import dagger.Component
 
-@ActivityScope
 @Component(
-    dependencies = [SearchComponent::class],
-    modules = [ActivityModule::class]
+    modules = [
+        ActivityModule::class,
+        SearchFragmentModule::class
+    ]
 )
 interface ActivityComponent {
 
