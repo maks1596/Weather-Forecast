@@ -15,7 +15,7 @@ interface GeoService {
      * @param limit Number of the cities in the API response (up to 5 results can be returned in the API response)
      */
     @GET("direct")
-    fun directGeocoding(
+    suspend fun directGeocoding(
         @Query("q") cityName: String,
         @Query("limit") limit: Int? = null
     ): List<City>
