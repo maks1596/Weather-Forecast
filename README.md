@@ -41,7 +41,7 @@ When developing an application, the following requirements must be met:
 - Use the Repository pattern for working with data 
 - Store data in a database, use [Room](https://developer.android.com/training/data-storage/room) to work with a database (part of Android Jetpack) 
 - Store application settings in [Shared Preferences](https://developer.android.com/training/data-storage/shared-preferences) (or other suitable solution for storing data in the form of key-value) 
-- Optionaly use DataStore instead (part of Android Jetpack) 
+   - Optionaly use [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) instead (part of Android Jetpack) 
 - Use [Retrofit](https://square.github.io/retrofit) and [Gson](https://github.com/google/gson) (a possible alternative to Moshi) libraries to work with the API 
 - Use [Fragments](https://developer.android.com/guide/fragments) (from AndroidX) 
 - Use [ConstraintLayout](https://developer.android.com/training/constraint-layout) 
