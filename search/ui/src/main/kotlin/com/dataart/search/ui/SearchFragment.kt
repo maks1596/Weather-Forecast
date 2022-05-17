@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
 import com.dataart.search.ui.databinding.SearchBinding
-import com.dataart.search.uiModel.SearchViewModel
+import com.dataart.search.viewModel.SearchViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 

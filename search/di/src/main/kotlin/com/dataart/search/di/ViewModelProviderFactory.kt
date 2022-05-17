@@ -5,7 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
 import com.dataart.search.data.CityRepository
-import com.dataart.search.uiModel.SearchViewModel
+import com.dataart.search.viewModel.SearchViewModel
 import javax.inject.Inject
 
 internal class ViewModelProviderFactory @Inject constructor(
