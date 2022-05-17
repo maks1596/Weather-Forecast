@@ -40,7 +40,10 @@ dependencies {
         kapt(compiler)
     }
 
+    implementation(Dependency.okHttp)
     implementation(Dependency.retrofit)
     implementation(Dependency.Lifecycle.viewModelSavedState)
     implementation(Dependency.AndroidX.fragment)
+    implementation(Dependency.retrofitKotlinSerializationConverter)
+    implementation(Dependency.kotlinSerializationJson)
 }

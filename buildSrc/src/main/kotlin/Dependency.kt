@@ -1,5 +1,8 @@
 object Dependency {
+    const val okHttp = "com.squareup.okhttp3:okhttp:${Version.okHttp}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofit}"
+    const val retrofitKotlinSerializationConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Version.retrofitKotlinSerializationConverter}"
+    const val kotlinSerializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Version.kotlinSerializationJson}"
 
     object Lifecycle {
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"

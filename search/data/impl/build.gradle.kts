@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("plugin.serialization") version "1.6.21"
 }
 
 android {
@@ -33,4 +34,5 @@ dependencies {
 
     implementation(Dependency.retrofit)
     implementation(Dependency.Coroutines.core)
+    implementation(Dependency.kotlinSerializationJson)
 }

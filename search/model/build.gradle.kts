@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    kotlin("plugin.serialization") version "1.6.21"
 }
 
 java {
@@ -9,4 +10,6 @@ java {
 
 dependencies {
     api(project(":model"))
+
+    implementation(Dependency.kotlinSerializationJson)
 }
