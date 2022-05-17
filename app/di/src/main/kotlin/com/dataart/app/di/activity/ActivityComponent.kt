@@ -4,6 +4,7 @@ import androidx.fragment.app.FragmentFactory
 import com.dataart.search.di.SearchComponent
 import dagger.Component
 
+@ActivityScope
 @Component(
     dependencies = [SearchComponent::class],
     modules = [ActivityModule::class]

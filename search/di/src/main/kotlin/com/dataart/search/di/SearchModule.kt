@@ -23,6 +23,7 @@ internal interface SearchModule {
 
     companion object {
         @Provides
+        @SearchScope
         fun provideFragment(
             provider: Provider<ViewModelProviderFactory>
         ) = SearchFragment {
