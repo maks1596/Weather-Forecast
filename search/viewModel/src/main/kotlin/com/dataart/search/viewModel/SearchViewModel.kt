@@ -37,8 +37,9 @@ class SearchViewModel(
         timeoutMillis = 500
     ).onEach {
         isLoadingFlow.value = true
-    }.mapLatest {
-        repository.getCities(it)
+    }.mapLatest { query ->
+        if (query.isBlank()) emptyList()
+        else repository.getCities(query)
     }.onEach {
         isLoadingFlow.value = false
     }
