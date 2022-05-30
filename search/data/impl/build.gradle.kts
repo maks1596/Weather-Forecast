@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -10,6 +12,12 @@ android {
     defaultConfig {
         minSdk = Version.Android.minSdk
         targetSdk = Version.Android.targetSdk
+
+        val localProperties = Properties()
+        rootProject.file("local.properties").inputStream().use { stream ->
+            localProperties.load(stream)
+        }
+        buildConfigField("String", "OPEN_WEATHER_API_KEY", "\"${localProperties["OPEN_WEATHER_API_KEY"]}\"")
     }
 
     buildTypes {
