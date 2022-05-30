@@ -41,6 +41,7 @@ dependencies {
     }
 
     implementation(Dependency.okHttp)
+    implementation(Dependency.okHttpLoggingInterceptor)
     implementation(Dependency.retrofit)
     implementation(Dependency.Lifecycle.viewModelSavedState)
     implementation(Dependency.AndroidX.fragment)

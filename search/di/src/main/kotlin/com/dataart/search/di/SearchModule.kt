@@ -13,9 +13,9 @@ import dagger.Provides
 import dagger.Reusable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.json.Json
-import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.create
 
@@ -40,10 +40,12 @@ internal interface SearchModule {
         @Provides
         @Reusable
         fun provideRetrofit(
-            apiKeyInterceptor: Interceptor
+            apiKeyInterceptor: ApiKeyInterceptor,
+            loggingInterceptor: HttpLoggingInterceptor,
         ): Retrofit {
             val client = OkHttpClient.Builder()
                 .addInterceptor(apiKeyInterceptor)
+                .addInterceptor(loggingInterceptor)
                 .build()
             val contentType = "application/json".toMediaType()
             val converterFactory = Json.asConverterFactory(contentType)
@@ -56,6 +58,15 @@ internal interface SearchModule {
 
         @Provides
         @Reusable
-        fun provideApiKeInterceptor(): Interceptor = ApiKeyInterceptor()
+        fun provideApiKeyInterceptor() = ApiKeyInterceptor()
+
+        @Provides
+        @Reusable
+        fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG)
+                HttpLoggingInterceptor.Level.BODY
+            else
+                HttpLoggingInterceptor.Level.NONE
+        }
     }
 }

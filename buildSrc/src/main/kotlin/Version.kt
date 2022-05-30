@@ -18,6 +18,7 @@ object Version {
     const val coroutines = "1.3.9"
 
     const val okHttp = "4.7.2"
+    const val okHttpLoggingInterceptor = "4.9.3"
     const val retrofit = "2.9.0"
     const val kotlinSerializationJson = "1.3.2"
     const val retrofitKotlinSerializationConverter = "0.8.0"
