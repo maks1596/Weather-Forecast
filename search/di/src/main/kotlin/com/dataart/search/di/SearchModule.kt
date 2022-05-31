@@ -16,6 +16,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.create
 
@@ -40,21 +41,23 @@ internal interface SearchModule {
         @Provides
         @Reusable
         fun provideRetrofit(
+            client: OkHttpClient,
+            converterFactory: Converter.Factory
+        ) = Retrofit.Builder()
+            .baseUrl("http://api.openweathermap.org/geo/1.0/")
+            .client(client)
+            .addConverterFactory(converterFactory)
+            .build()
+
+        @Provides
+        @Reusable
+        fun provideOkHttpClient(
             apiKeyInterceptor: ApiKeyInterceptor,
-            loggingInterceptor: HttpLoggingInterceptor,
-        ): Retrofit {
-            val client = OkHttpClient.Builder()
-                .addInterceptor(apiKeyInterceptor)
-                .addInterceptor(loggingInterceptor)
-                .build()
-            val contentType = "application/json".toMediaType()
-            val converterFactory = Json.asConverterFactory(contentType)
-            return Retrofit.Builder()
-                .baseUrl("http://api.openweathermap.org/geo/1.0/")
-                .client(client)
-                .addConverterFactory(converterFactory)
-                .build()
-        }
+            loggingInterceptor: HttpLoggingInterceptor
+        ) = OkHttpClient.Builder()
+            .addInterceptor(apiKeyInterceptor)
+            .addInterceptor(loggingInterceptor)
+            .build()
 
         @Provides
         @Reusable
@@ -67,6 +70,14 @@ internal interface SearchModule {
                 HttpLoggingInterceptor.Level.BODY
             else
                 HttpLoggingInterceptor.Level.NONE
+        }
+
+        @Provides
+        @Reusable
+        fun provideConverterFactory(): Converter.Factory {
+            val contentType = "application/json".toMediaType()
+            val json = Json { ignoreUnknownKeys = true }
+            return json.asConverterFactory(contentType)
         }
     }
 }
