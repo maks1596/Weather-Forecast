@@ -36,4 +36,8 @@ object Dependency {
         const val core = "com.google.dagger:dagger:${Version.dagger}"
         const val compiler = "com.google.dagger:dagger-compiler:${Version.dagger}"
     }
+
+    object Room {
+        const val common = "androidx.room:room-common:${Version.Room.common}"
+    }
 }
