@@ -29,7 +29,6 @@ android {
 }
 
 dependencies {
-    with(Dependency.Room) {
-        implementation(common)
-    }
+    implementation(Dependency.Room.common)
+    implementation(Dependency.Coroutines.core)
 }
