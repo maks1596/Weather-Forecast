@@ -1,6 +1,5 @@
 package com.dataart.search.data.impl
 
-import com.dataart.search.model.City
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -18,5 +17,5 @@ interface GeoService {
     suspend fun directGeocoding(
         @Query("q") cityName: String,
         @Query("limit") limit: Int? = null
-    ): List<City>
+    ): List<CityDto>
 }

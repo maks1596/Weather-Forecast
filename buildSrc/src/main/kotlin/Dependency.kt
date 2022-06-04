@@ -40,5 +40,6 @@ object Dependency {
     object Room {
         const val common = "androidx.room:room-common:${Version.room}"
         const val ktx = "androidx.room:room-ktx:${Version.room}"
+        const val compiler = "androidx.room:room-compiler:${Version.room}"
     }
 }

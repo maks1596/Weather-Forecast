@@ -39,6 +39,8 @@ android {
 
 dependencies {
     api(project(":search:data"))
+    api(project(":app:db"))
+    implementation(project(":app:db"))
 
     implementation(Dependency.retrofit)
     implementation(Dependency.Coroutines.core)

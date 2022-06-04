@@ -1,6 +1,7 @@
 package com.dataart.search.di
 
 import androidx.savedstate.SavedStateRegistryOwner
+import com.dataart.app.db.FavouriteCitiesDao
 import com.dataart.search.data.CityRepository
 import com.dataart.search.data.impl.ApiKeyInterceptor
 import com.dataart.search.data.impl.CityRepositoryImpl
@@ -30,7 +31,11 @@ internal interface SearchModule {
 
         @Provides
         @Reusable
-        fun provideRepository(geoService: GeoService): CityRepository = CityRepositoryImpl(
+        fun provideRepository(
+            geoService: GeoService,
+            favouriteCitiesDao: FavouriteCitiesDao
+        ): CityRepository = CityRepositoryImpl(
+            favouriteCitiesDao = favouriteCitiesDao,
             ioDispatcher = Dispatchers.IO,
             geoService = geoService
         )
@@ -43,7 +48,7 @@ internal interface SearchModule {
         fun provideRetrofit(
             client: OkHttpClient,
             converterFactory: Converter.Factory
-        ) = Retrofit.Builder()
+        ): Retrofit = Retrofit.Builder()
             .baseUrl("http://api.openweathermap.org/geo/1.0/")
             .client(client)
             .addConverterFactory(converterFactory)
@@ -54,7 +59,7 @@ internal interface SearchModule {
         fun provideOkHttpClient(
             apiKeyInterceptor: ApiKeyInterceptor,
             loggingInterceptor: HttpLoggingInterceptor
-        ) = OkHttpClient.Builder()
+        ): OkHttpClient = OkHttpClient.Builder()
             .addInterceptor(apiKeyInterceptor)
             .addInterceptor(loggingInterceptor)
             .build()

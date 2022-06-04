@@ -21,7 +21,7 @@ interface FavouriteCitiesDao {
      * Returns reactive flow of all favourite cities
      */
     @Query("SELECT * FROM favourite_cities")
-    suspend fun getAll(): Flow<FavouriteCityEntity>
+    fun getAll(): Flow<FavouriteCityEntity>
 
     /**
      * Does the city already saved as favourite

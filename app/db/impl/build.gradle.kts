@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
 }
 
 android {
@@ -32,7 +33,7 @@ dependencies {
     api(project(":app:db"))
 
     with(Dependency.Room) {
-        implementation(common)
-        implementation(ktx)
+        api(ktx)
+        kapt(compiler)
     }
 }

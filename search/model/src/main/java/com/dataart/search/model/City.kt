@@ -1,19 +1,15 @@
 package com.dataart.search.model
 
 import com.dataart.model.City
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.dataart.model.Coordinates
 
 /**
  * City information to display in search results
  */
-@Serializable
 data class City(
-
-    @SerialName("name")
     override val name: String,
-
-    @SerialName("country")
-    override val countryName: String
+    override val countryName: String,
+    override val coordinates: Coordinates
 ) : City.WithName,
-    City.WithCountryName
+    City.WithCountryName,
+    City.WithCoordinates

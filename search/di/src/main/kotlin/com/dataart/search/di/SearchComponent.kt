@@ -1,5 +1,6 @@
 package com.dataart.search.di
 
+import com.dataart.app.db.FavouriteCitiesDao
 import com.dataart.search.ui.SearchFragment
 import dagger.BindsInstance
 import dagger.Component
@@ -12,6 +13,9 @@ internal interface SearchComponent {
     @Component.Factory
     interface Factory {
 
-        fun create(@BindsInstance fragment: SearchFragment): SearchComponent
+        fun create(
+            @BindsInstance fragment: SearchFragment,
+            @BindsInstance favouriteCitiesDao: FavouriteCitiesDao
+        ): SearchComponent
     }
 }
