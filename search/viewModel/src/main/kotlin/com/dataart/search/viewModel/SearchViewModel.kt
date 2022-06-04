@@ -5,10 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dataart.search.data.CityRepository
 import com.dataart.search.model.City
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class SearchViewModel(
@@ -31,6 +28,11 @@ class SearchViewModel(
      * Is data loading now
      */
     val isLoadingFlow = MutableStateFlow(false)
+
+    /**
+     * Event for navigating to favourite cities screen
+     */
+    val navigateToFavouriteCities = MutableSharedFlow<Unit>()
 
     /**
      * Flow of cities found via [searchQuery][searchQueryFlow]
@@ -59,6 +61,7 @@ class SearchViewModel(
     fun onCityClicked(city: City) {
         viewModelScope.launch {
             repository.addToFavourites(city)
+            navigateToFavouriteCities.emit(Unit)
         }
     }
 
