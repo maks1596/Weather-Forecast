@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.recyclerview.widget.RecyclerView
 import com.dataart.search.ui.databinding.SearchBinding
 import com.dataart.search.viewModel.SearchViewModel
 import kotlinx.coroutines.flow.collect
@@ -20,11 +19,25 @@ class SearchFragment(
 
     private val viewModel by viewModelLazy()
 
+    private val adapter by lazy {
+        CityAdapter(viewModel::onCityClicked)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.citiesFlow.collect(adapter::submitList)
+            }
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val binding = SearchBinding.bind(view)
 
         binding.toolbar.cityNameSearchView.configure()
-        binding.citiesRecyclerView.configure()
+        binding.citiesRecyclerView.adapter = adapter
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
@@ -60,14 +73,4 @@ class SearchFragment(
         }
     }
 
-    private fun RecyclerView.configure() {
-        val adapter = CityAdapter()
-        this.adapter = adapter
-
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.citiesFlow.collect(adapter::submitList)
-            }
-        }
-    }
 }

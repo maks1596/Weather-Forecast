@@ -2,17 +2,19 @@ package com.dataart.search.viewModel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.dataart.search.data.CityRepository
+import com.dataart.search.model.City
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 
 class SearchViewModel(
     savedStateHandle: SavedStateHandle,
-    repository: CityRepository
+    private val repository: CityRepository
 ) : ViewModel() {
-
 
     private val _searchQueryFlow = MutableStateFlow(
         savedStateHandle[SEARCH_QUERY_KEY] ?: ""
@@ -49,6 +51,15 @@ class SearchViewModel(
      */
     fun onSearchQueryChanged(searchQuery: String) {
         _searchQueryFlow.value = searchQuery
+    }
+
+    /**
+     * User clicked on [city]
+     */
+    fun onCityClicked(city: City) {
+        viewModelScope.launch {
+            repository.addToFavourites(city)
+        }
     }
 
     private companion object {
