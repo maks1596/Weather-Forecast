@@ -20,7 +20,7 @@ class CityRepositoryImpl(
 
     override suspend fun addToFavourites(city: City) = withContext(ioDispatcher) {
         val entity = city.toEntity()
-        favouriteCitiesDao.insert(entity)
+        favouriteCitiesDao.tryInsert(entity)
     }
 
     private companion object {

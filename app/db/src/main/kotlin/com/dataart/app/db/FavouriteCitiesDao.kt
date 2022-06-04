@@ -2,6 +2,7 @@ package com.dataart.app.db
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
@@ -12,10 +13,11 @@ import kotlinx.coroutines.flow.Flow
 interface FavouriteCitiesDao {
 
     /**
-     * Inserts new favourite city in database
+     * Tries to insert new favourite city in database.
+     * If [city] already exists in favourites then insertion will be ignored.
      */
-    @Insert
-    suspend fun insert(city: FavouriteCityEntity)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun tryInsert(city: FavouriteCityEntity)
 
     /**
      * Returns reactive flow of all favourite cities
