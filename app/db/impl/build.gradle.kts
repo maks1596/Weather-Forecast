@@ -29,6 +29,10 @@ android {
 }
 
 dependencies {
-    implementation(Dependency.Room.common)
-    api(Dependency.Coroutines.core)
+    api(project(":app:db"))
+
+    with(Dependency.Room) {
+        implementation(common)
+        implementation(ktx)
+    }
 }

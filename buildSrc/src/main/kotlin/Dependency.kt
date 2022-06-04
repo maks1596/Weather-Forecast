@@ -38,6 +38,7 @@ object Dependency {
     }
 
     object Room {
-        const val common = "androidx.room:room-common:${Version.Room.common}"
+        const val common = "androidx.room:room-common:${Version.room}"
+        const val ktx = "androidx.room:room-ktx:${Version.room}"
     }
 }
