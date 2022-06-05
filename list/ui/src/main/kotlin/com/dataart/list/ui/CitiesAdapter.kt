@@ -29,8 +29,8 @@ internal class CitiesAdapter : ListAdapter<City, CitiesAdapter.ViewHolder>(DiffC
 
             // TODO Make units ending
             // TODO Round double temperature to pretty form
-            dayTemperature.text = city.temperature.day.toString()
-            nightTemperature.text = city.temperature.night.toString()
+            dayTemperatureTextView.text = city.temperature.day.toString()
+            nightTemperatureTextView.text = city.temperature.night.toString()
         }
     }
 

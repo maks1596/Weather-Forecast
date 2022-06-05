@@ -30,10 +30,10 @@ android {
 }
 
 dependencies {
-    implementation(project(":search:ui"))
     implementation(project(":app:di"))
-    implementation(project(":search:di"))
-    implementation(project(":list:di"))
+
+    implementation(project(":search:ui"))
+    implementation(project(":list:ui"))
 
     implementation(Dependency.AndroidX.core)
     implementation(Dependency.AndroidX.appCompat)

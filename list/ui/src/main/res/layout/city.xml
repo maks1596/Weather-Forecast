@@ -23,23 +23,25 @@
         app:layout_constraintGuide_percent=".5" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/dayTemperature"
+        android:id="@+id/dayTemperatureTextView"
         style="@style/TextAppearance.MaterialComponents.Headline5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/middleVerticalGuideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nameTextView"
         tools:text="100500 C" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/nightTemperature"
+        android:id="@+id/nightTemperatureTextView"
         style="@style/TextAppearance.MaterialComponents.Headline5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/dayTemperatureTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/middleVerticalGuideline"
-        app:layout_constraintTop_toTopOf="@id/dayTemperature"
+        app:layout_constraintTop_toTopOf="@id/dayTemperatureTextView"
         tools:text="-248 C" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
