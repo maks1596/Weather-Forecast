@@ -23,7 +23,7 @@ interface FavouriteCitiesDao {
      * Returns reactive flow of all favourite cities
      */
     @Query("SELECT * FROM favourite_cities")
-    fun getAll(): Flow<FavouriteCityEntity>
+    fun getAll(): Flow<List<FavouriteCityEntity>>
 
     /**
      * Does the city already saved as favourite
@@ -31,7 +31,7 @@ interface FavouriteCitiesDao {
     @Query(
         """
         SELECT COUNT(longitude)
-        FROM FAVOURITE_CITIES 
+        FROM favourite_cities 
         WHERE :favouriteCityLongitude = longitude
             AND :favouriteCityLatitude = latitude
         LIMIT 1
@@ -41,4 +41,13 @@ interface FavouriteCitiesDao {
         favouriteCityLongitude: Double,
         favouriteCityLatitude: Double
     ): Boolean
+
+    @Query(
+        """
+        DELETE FROM favourite_cities
+        WHERE :longitude = longitude
+            AND :latitude = latitude
+        """
+    )
+    suspend fun delete(longitude: Double, latitude: Double)
 }

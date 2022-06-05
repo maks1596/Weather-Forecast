@@ -1,5 +1,6 @@
 package com.dataart.list
 
+import com.dataart.model.Coordinates
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -13,7 +14,7 @@ interface CityRepository {
     fun getCities(): Flow<List<City>>
 
     /**
-     * Removes [city] from list of user saved cities
+     * Removes city from from list of user saved cities by [coordinates]
      */
-    suspend fun removeCity(city: City)
+    suspend fun removeCity(coordinates: Coordinates)
 }

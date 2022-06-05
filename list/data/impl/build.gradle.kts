@@ -30,4 +30,5 @@ android {
 
 dependencies {
     api(project(":list:data"))
+    api(project(":app:db"))
 }
