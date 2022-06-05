@@ -4,6 +4,7 @@ import androidx.fragment.app.FragmentFactory
 import com.dataart.app.db.FavouriteCitiesDao
 import com.dataart.app.di.app.ApplicationComponent
 import com.dataart.app.di.scope.ActivityScope
+import com.dataart.list.di.CitiesFragmentModule
 import com.dataart.search.di.SearchFragmentModule
 import dagger.Component
 
@@ -13,7 +14,8 @@ import dagger.Component
     ],
     modules = [
         ActivityModule::class,
-        SearchFragmentModule::class
+        SearchFragmentModule::class,
+        CitiesFragmentModule::class
     ]
 )
 @ActivityScope

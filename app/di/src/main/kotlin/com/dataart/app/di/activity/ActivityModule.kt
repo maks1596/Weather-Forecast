@@ -2,6 +2,7 @@ package com.dataart.app.di.activity
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
+import com.dataart.list.ui.CitiesFragment
 import com.dataart.search.ui.SearchFragment
 import dagger.Binds
 import dagger.Module
@@ -17,6 +18,11 @@ internal interface ActivityModule {
     @IntoMap
     @ClassKey(SearchFragment::class)
     fun provideSearchFragment(fragment: SearchFragment): Fragment
+
+    @Binds
+    @IntoMap
+    @ClassKey(CitiesFragment::class)
+    fun provideCitiesFragment(fragment: CitiesFragment): Fragment
 
     companion object {
 

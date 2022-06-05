@@ -31,10 +31,14 @@ android {
 }
 
 dependencies {
+    implementation(project(":list:viewModel"))
+    implementation(project(":list:ui"))
     implementation(project(":list:data:impl"))
 
     with(Dependency.Dagger) {
         implementation(core)
         kapt(compiler)
     }
+
+    implementation(Dependency.AndroidX.fragment)
 }

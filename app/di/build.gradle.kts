@@ -33,6 +33,10 @@ android {
 dependencies {
     implementation(project(":search:di"))
     implementation(project(":search:ui"))
+
+    implementation(project(":list:di"))
+    implementation(project(":list:ui"))
+
     implementation(project(":app:db:impl"))
 
     with(Dependency.Dagger) {
