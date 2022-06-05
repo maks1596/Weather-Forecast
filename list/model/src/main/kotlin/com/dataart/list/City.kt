@@ -1,6 +1,7 @@
 package com.dataart.list
 
 import com.dataart.model.City
+import com.dataart.model.Coordinates
 import com.dataart.model.Weather
 
 /**
@@ -9,7 +10,9 @@ import com.dataart.model.Weather
 data class City(
     override val name: String,
     override val weather: Weather,
-    override val temperature: Temperature
+    override val coordinates: Coordinates,
+    override val temperature: Temperature,
 ) : City.WithName,
     City.WithWeather,
+    City.WithCoordinates,
     City.WithTemperature<Temperature>
